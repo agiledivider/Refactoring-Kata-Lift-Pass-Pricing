@@ -2,6 +2,8 @@
 using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Nancy;
+using Nancy.Configuration;
 using Nancy.Owin;
 
 namespace LiftPassPricing
@@ -32,7 +34,19 @@ and you'll get the price of the list pass for the day.");
     {
         public void Configure(IApplicationBuilder app)
         {
-            app.UseOwin(x => x.UseNancy());
+            app.UseOwin(x => x.UseNancy(options =>
+            {
+                options.Bootstrapper = new CustomBootstrapper();
+            }));
+        }
+        
+    }
+
+    public class CustomBootstrapper : DefaultNancyBootstrapper
+    {
+        public override void Configure(INancyEnvironment environment)
+        {
+            environment.Tracing(true, true);
         }
     }
 
