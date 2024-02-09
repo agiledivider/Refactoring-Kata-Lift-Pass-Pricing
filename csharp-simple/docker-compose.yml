@@ -1,11 +1,18 @@
 version: "3.8"
 services:
   webapp:
-    image: mcr.microsoft.com/dotnet/sdk:2.1
-    #depends_on: mariadb
+    build: 
+      context: .
+      dockerfile: docker/liftpass/Dockerfile      
+    depends_on: 
+      - mariadb
+    ports:
+      - "8080:5000"
+    
+          
   mariadb:
     build: 
       context: .
-      dockerfile: Dockerfile.mariadb
-    expose:
-      - 3306:3306
+      dockerfile: docker/mariadb/Dockerfile
+    ports:
+      - "3306:3306"

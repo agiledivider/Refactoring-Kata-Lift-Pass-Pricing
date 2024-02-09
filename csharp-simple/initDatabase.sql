@@ -12,6 +12,8 @@ CREATE TABLE IF NOT EXISTS lift_pass.base_price (
 INSERT INTO lift_pass.base_price (type, cost) VALUES ('1jour', 35);
 INSERT INTO lift_pass.base_price (type, cost) VALUES ('night', 19);
 
+INSERT INTO lift_pass.base_price (type, cost) VALUES ('testing', 44);
+
 CREATE TABLE IF NOT EXISTS lift_pass.holidays (
     holiday DATE NOT NULL,
     description VARCHAR(255) NOT NULL,

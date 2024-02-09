@@ -15,7 +15,7 @@ namespace LiftPassPricing
         {
             this.connection = new MySqlConnection
             {
-                ConnectionString = @"Database=lift_pass;Data Source=localhost;User Id=root;Password=mysql"
+                ConnectionString = @"Database=lift_pass;Data Source=mariadb;User Id=root;Password=mysql"
             };
             connection.Open();
 
