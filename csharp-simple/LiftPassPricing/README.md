@@ -17,3 +17,18 @@ To run the tests:
 To start the application:
 
     dotnet run
+
+
+## Running with docker
+In csharp-simple folder run to build
+
+    docker-compose build
+
+to run:
+
+    docker-compose up
+
+to run test (when services are running):
+
+    docker-compose exec webapp dotnet test
+
