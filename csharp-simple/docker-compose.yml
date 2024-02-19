@@ -16,3 +16,12 @@ services:
       dockerfile: docker/mariadb/Dockerfile
     ports:
       - "3306:3306"
+        
+  e2e:
+    build: 
+      context: .
+      dockerfile: docker/E2E_Testing/Dockerfile
+    depends_on: 
+      - webapp
+    environment:
+      - APP_HOST_AND_PORT=webapp:5000
